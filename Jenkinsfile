@@ -29,26 +29,13 @@ catch (exc) {
 /*
  err = caughtError
  currentBuild.result = "FAILURE"
- String recipient = 'infra@lists.jenkins-ci.org'
+ String recipient = 'krishnapriya.eadara@kony.com'
  mail subject: "${env.JOB_NAME} (${env.BUILD_NUMBER}) failed",
          body: "It appears that ${env.BUILD_URL} is failing, somebody should do something about that",
            to: recipient,
       replyTo: recipient,
- from: 'noreply@ci.jenkins.io'
+ from: 'krishnapriya.eadara@kony.com'
 */
 } finally {
-  
- (currentBuild.result != "ABORTED") && node("master") {
-     // Send e-mail notifications for failed or unstable builds.
-     // currentBuild.result must be non-null for this step to work.
-     step([$class: 'Mailer',
-        notifyEveryUnstableBuild: true,
-        recipients: "${email_to}",
-        sendToIndividuals: true])
- }
- 
- // Must re-throw exception to propagate error:
- if (err) {
-     throw err
- }
+
 }
