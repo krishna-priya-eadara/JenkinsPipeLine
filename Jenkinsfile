@@ -22,6 +22,7 @@ def workspace = pwd()
 echo "\u2600 workspace=${workspace}"
  
 stage '\u2777 Stage 2'
+echo "\u2600 Hi"
 } // node
 } // try end
 catch (exc) {
